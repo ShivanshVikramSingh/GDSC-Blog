@@ -1,0 +1,58 @@
+<%- include('header') -%>
+<%- include('elements') -%>
+
+<hr>
+<% var i=0 %>
+<% posts.forEach(function(post) { %>
+    <% i++ %> 
+    <section  id="<%= post.title%>"class="skills">
+        <% if(i % 4 === 0) { %>
+            <% var fl = "right"; var clo = "#2196F3"; %>
+        <% } else if(i % 4 === 1) { %>
+            <% var fl = "left"; var clo = "#F44336"; %>
+        <% } else if(i % 4 === 2) { %>
+            <% var fl = "right"; var clo = "#FFC107"; %>
+        <% } else if(i % 4 === 3) { %>
+            <% var fl = "left"; var clo = "#4CAF50"; %>
+        <% } %>
+        <div class="skill-row">
+            <% if(i % 2 === 0) { %>
+            <img style="float: <%= fl %>  " class="CP" src="<%= post.link %>">
+            <% } else if(i % 2 === 1) { %>
+                <img style="float: <%= fl %>  " class="Dev" src="<%= post.link %>">
+                <% } %>
+            <h4 style="color: <%= clo %>;"><%= post.title %></h3>
+            <p><%= post.body %></p>
+            <div align="right">Added by: <%= post.username %></div>
+        </div>
+    </section>
+<% }); %>
+
+
+<!-- 
+
+<% posts.forEach(function(post){  %>
+    
+    <div class="posts">
+    <h2><%=(post.title) %></h2>  
+<img src="<%=(post.link)%>" alt="d">
+   <p><%=(post.body)%><p> 
+    <div align="right">Added by: <%=(post.username)%></div>
+</div>
+<% }); %> -->
+
+
+</section>
+<div class="bttn" align="right">
+<form action="/compose">
+    <button type="submit" class="btn btn-primary">Add Blog</button>
+ </form>
+</div>
+</body>
+<script src="/index.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>
